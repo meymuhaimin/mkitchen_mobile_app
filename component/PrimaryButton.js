@@ -1,27 +1,34 @@
 import { View, Text, Pressable, StyleSheet} from 'react-native';
 
 function PrimaryButton({children}){
-function pressHandler() {
-    console.log('Pressed!');
-}
+    function pressHandler() {
+        console.log('Pressed!');
+    }
 
-    return (
-    <Pressable onPress={pressHandler}>
-        <View>
-            <Text>{children}</Text>
-        </View>
-    </Pressable>
-    );
+        return (
+        <Pressable onPress={pressHandler}>
+            <View style={styles.container}>
+                <Text style={styles.textStyle}>{children}</Text>
+            </View>
+        </Pressable>
+        );
 }
 
 export  default PrimaryButton;
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#62FAC8',
-        borderRadius: 28,
-        paddingVertical: 8,
-        paddingHorizontal: 16,
-        elevation: 2
+        backgroundColor: '#616161',
+        borderRadius: 9,
+        paddingVertical: 13,
+        elevation: 2,
+        marginHorizontal: 35,
+        marginVertical: 20
+    },
+    textStyle: {
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 15
     }
 });
