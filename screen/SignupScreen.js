@@ -10,32 +10,39 @@ function SignupScreen({onSkrinNumber}) {
 
     return (
         <View style={styles.inputContainer}>
+            <Text style={{textAlign: 'center', fontSize: 40}}>
+                Create New Account
+            </Text>
             <TextInput 
+                placeholder='Name'
                 style={styles.emailInput}
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false} 
             />
             <TextInput 
+                placeholder='Email'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
                 autoCorrect={false} 
             />
             <TextInput 
+                placeholder='Password'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
                 autoCorrect={false} 
             />
             <TextInput 
+                placeholder='Re-enter Password'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
                 autoCorrect={false} 
             />
             <PrimaryButton>Reset</PrimaryButton>
-            <PrimaryButton>Login</PrimaryButton>
+            <PrimaryButton>Sign Up</PrimaryButton>
             <View>
                 <Pressable onPress={pressHandler} >
                     <Text style={{textAlign: 'center', textDecorationLine: 'underline'}}>Log In</Text>
@@ -51,7 +58,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         marginTop: 2,
         padding: 16,
-        backgroundColor: '#62FAC8',
+        backgroundColor: '#8CE8BC',
     },
     emailInput: {
         borderColor: 'white',

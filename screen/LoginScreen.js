@@ -8,22 +8,29 @@ function LoginScreen({onSkrinNumber}) {
         onSkrinNumber(skrinNum);
     }
 
+    function loginPressHandler() {
+        var skrinNum = 2;
+        onSkrinNumber(skrinNum);
+    }
+
     return (
         <View style={styles.inputContainer}>
             <TextInput 
+                placeholder='Email'
                 style={styles.emailInput}
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false} 
             />
             <TextInput 
+                placeholder='Password'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
                 autoCorrect={false} 
             />
             <PrimaryButton>Reset</PrimaryButton>
-            <PrimaryButton>Login</PrimaryButton>
+            <PrimaryButton onPress={loginPressHandler}>Login</PrimaryButton>
             <View>
                 <Text style={{textAlign: 'center'}}>Not registered yet?</Text>
                 <Pressable onPress={pressHandler}>
@@ -40,7 +47,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         marginTop: 2,
         padding: 16,
-        backgroundColor: '#62FAC8',
+        backgroundColor: '#8CE8BC',
     },
     emailInput: {
         borderColor: 'white',
