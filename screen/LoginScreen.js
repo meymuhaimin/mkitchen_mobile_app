@@ -2,7 +2,12 @@ import { TextInput, View, StyleSheet, Pressable, Text } from 'react-native';
 
 import PrimaryButton from '../component/PrimaryButton';
 
-function LoginScreen() {
+function LoginScreen({onSkrinNumber}) {
+    function pressHandler() {
+        var skrinNum = 1;
+        onSkrinNumber(skrinNum);
+    }
+
     return (
         <View style={styles.inputContainer}>
             <TextInput 
@@ -21,7 +26,7 @@ function LoginScreen() {
             <PrimaryButton>Login</PrimaryButton>
             <View>
                 <Text style={{textAlign: 'center'}}>Not registered yet?</Text>
-                <Pressable >
+                <Pressable onPress={pressHandler}>
                     <Text style={{textAlign: 'center', textDecorationLine: 'underline'}}>Sign Up</Text>
                 </Pressable>
             </View>
