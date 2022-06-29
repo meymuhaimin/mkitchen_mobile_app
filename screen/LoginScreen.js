@@ -2,16 +2,16 @@ import { TextInput, View, StyleSheet, Pressable, Text } from 'react-native';
 
 import PrimaryButton from '../component/PrimaryButton';
 
-function LoginScreen({onSkrinNumber}) {
-    function pressHandler() {
-        var skrinNum = 1;
-        onSkrinNumber(skrinNum);
-    }
+function LoginScreen({ navigation }) {
+    // function pressHandler() {
+    //     var skrinNum = 1;
+    //     onSkrinNumber(skrinNum);
+    // }
 
-    function loginPressHandler() {
-        var skrinNum = 2;
-        onSkrinNumber(skrinNum);
-    }
+    // function loginPressHandler() {
+    //     var skrinNum = 2;
+    //     onSkrinNumber(skrinNum);
+    // }
 
     return (
         <View style={styles.inputContainer}>
@@ -30,10 +30,10 @@ function LoginScreen({onSkrinNumber}) {
                 autoCorrect={false} 
             />
             <PrimaryButton>Reset</PrimaryButton>
-            <PrimaryButton onPress={loginPressHandler}>Login</PrimaryButton>
+            <PrimaryButton onPress={() => navigation.navigate('HomeScreen')}>Login</PrimaryButton>
             <View>
                 <Text style={{textAlign: 'center'}}>Not registered yet?</Text>
-                <Pressable onPress={pressHandler}>
+                <Pressable onPress={() => navigation.navigate('Sign Up')}>
                     <Text style={{textAlign: 'center', textDecorationLine: 'underline'}}>Sign Up</Text>
                 </Pressable>
             </View>

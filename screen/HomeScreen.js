@@ -1,75 +1,91 @@
-import { View, Pressable, Text, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { View, Pressable, Text, StyleSheet, Platform } from 'react-native';
 
 function HomeScreen({ navigation }) {
     return (
-        
-            <View style={styles.outer}>
-                
-                <Pressable style={styles.button}>
-                    <View style={styles.hiring}>
+        <View style={styles.container}>
+            <View style={styles.innerContainer}>
+                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
+                    styles.button,
+                    pressed ? styles.buttonPressed : null,
+                ]}>
+                    <View style={styles.inner1Container}>
                         <Text style={styles.title}>We Are Hiring</Text>
                     </View>
                 </Pressable>
-                
-                <View style={styles.sec}>
-                    <Pressable style={styles.button}>
-                        <Text style={styles.title}>Vendors</Text>
-                    </Pressable>
-                <Pressable
-                    style={styles.button}
-                    onPress={() => navigation.navigate('Conference')}
-                    >
-                        <Text style={styles.title}>Food</Text>
-                    </Pressable>
-                </View>
-                
-                <Pressable style={styles.button}>
-                    <View style={styles.donate}>
-                        <Text style={styles.title}>Donate</Text>
-                    </View>    
-                </Pressable>
-                
-                
             </View>
-        )    
+            <View style={styles.innerContainer}>
+                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
+                    styles.button,
+                    pressed ? styles.buttonPressed : null,
+                ]}>
+                    <View style={styles.inner1Container}>
+                        <Text style={styles.title}>Vendors</Text>
+                    </View>
+                </Pressable>
+            </View>
+            <View style={styles.innerContainer}>
+                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
+                    styles.button,
+                    pressed ? styles.buttonPressed : null,
+                ]}
+                    onPress={() => navigation.navigate('FoodScreen')}>
+                    <View style={styles.inner1Container}>
+                        <Text style={styles.title}>Food</Text>
+                    </View>
+                </Pressable>
+            </View>
+            <View style={styles.innerContainer}>
+                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
+                    styles.button,
+                    pressed ? styles.buttonPressed : null,
+                ]}>
+                    <View style={styles.inner1Container}>
+                        <Text style={styles.title}>Donate</Text>
+                    </View>
+                </Pressable>
+            </View>
+        </View>
+
+    )
 }
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-    outer: {
+    container: {
         flex: 1,
+        justifyContent: 'space-around',
+        alignItems: "center",
     },
-    hiring: {
+    innerContainer: {
         flex: 1,
-        margin: 15,
-        padding: 80,
-        backgroundColor: 'white',
-        borderWidth:1
-
+        margin: 16,
+        height: 150,
+        elevation: 4,
+        borderRadius: 8,
+        shadowColor: "black",
+        shadowOpacity: 0.25,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 8,
+        backgroundColor: '#616161',
+        overflow: Platform.OS === "android" ? "hidden" : "visible"
     },
     button: {
-        flex: 1
-    },
-    sec: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        margin: 15,
-        padding: 80,
-        borderWidth:1
-    },
-    donate: {
         flex: 1,
-        margin: 15,
-        padding: 40,
-        borderWidth:1
+    },
+    buttonPressed: {
+        opacity: 0.1,
+    },
+    inner1Container: {
+        flex: 1,
+        padding: 16,
+        borderRadius: 8,
+        justifyContent: "center",
+        alignItems: "center",
     },
     title: {
-        textAlign: 'center',
-        textAlignVertical: 'bottom',
-        fontSize: 30,
-        fontWeight: 'bold'
-    }
+        fontWeight: "bold",
+        fontSize: 18,
+        color: 'white'
+    },
 })

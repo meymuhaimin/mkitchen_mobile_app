@@ -44,7 +44,7 @@ function SignupScreen({onSkrinNumber}) {
             <PrimaryButton>Reset</PrimaryButton>
             <PrimaryButton>Sign Up</PrimaryButton>
             <View>
-                <Pressable onPress={pressHandler} >
+                <Pressable onPress={() => navigation.navigate('Login')} >
                     <Text style={{textAlign: 'center', textDecorationLine: 'underline'}}>Log In</Text>
                 </Pressable>
             </View>
