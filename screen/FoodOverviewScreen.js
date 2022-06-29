@@ -1,7 +1,11 @@
 import { Text } from 'react-native';
 
-function FoodOverviewScreen() {
-    return <Text>jj</Text>
+import { MENU } from '../data/food-data';
+
+function FoodOverviewScreen({ route }) {
+    const foodId = route.params.menuId;
+
+    return <Text>hgdfyjtf({foodId})</Text>
 }
 
 export default FoodOverviewScreen;

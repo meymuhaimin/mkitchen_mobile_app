@@ -8,7 +8,7 @@ function FoodScreen({ navigation }) {
     function renderCategoryItem(itemData) {
         function pressHandler() {
             navigation.navigate("FoodOverview", {
-                categoryId: itemData.item.id,
+                menuId: itemData.item.id,
             });
         }
         return (
