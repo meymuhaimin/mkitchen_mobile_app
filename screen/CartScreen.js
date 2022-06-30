@@ -26,7 +26,7 @@ function CartScreen() {
             const food = MENU.find(menu => menu.id === order.id)
             const price = food.price * order.quantity;
 
-            return <Text key={index}>{food.name}: RM {price}</Text>
+            return <Text key={index}>{food.name} * {order.quantity}: RM {price}</Text>
         })}
         <Text>Total: RM {getTotal()}</Text>
     </View>

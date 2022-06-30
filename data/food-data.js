@@ -19,7 +19,7 @@ export const MENU = [
         "M3",
         "Nasi Arab",
         7
-      
+
     ),
     new Menu(
         "M4",
