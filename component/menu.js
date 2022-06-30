@@ -1,12 +1,16 @@
 class Menu {
     constructor(
-        ids,
+        id,
         name,
         price,
+        definition,
+        picture,
     ) {
-        this.ids = ids;
+        this.id = id;
         this.name = name;
         this.price = price;
+        this.definition = definition;
+        this.picture = picture;
     }
 }
 

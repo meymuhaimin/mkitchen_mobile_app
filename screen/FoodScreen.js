@@ -9,6 +9,10 @@ function FoodScreen({ navigation }) {
         function pressHandler() {
             navigation.navigate("FoodOverview", {
                 menuId: itemData.item.id,
+                menuName: itemData.item.name,
+                menuPrice: itemData.item.price,
+                menuDefinition: itemData.item.definition,
+                menuImage: itemData.item.image,
             });
         }
         return (

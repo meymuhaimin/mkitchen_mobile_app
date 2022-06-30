@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
         flex: 1,
         margin: 16,
         height: 150,
+        width: 200,
         elevation: 4,
         borderRadius: 8,
         shadowColor: "black",
