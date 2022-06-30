@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, Image, Button } from 'react-native';
-import { useContext, useLayoutEffect } from 'react';
+import {useContext, useLayoutEffect, useState} from 'react';
 
 import PrimaryButton from '../component/PrimaryButton';
 
@@ -8,6 +8,7 @@ import { CartContext } from '../context/cart-context';
 import IconButton from '../component/IconButton';
 
 function FoodOverviewScreen({ route, navigation }) {
+    const [quantity, setQuantity] = useState(0);
     const foodCartCtx = useContext(CartContext);
 
     const foodId = route.params.menuId;
@@ -16,29 +17,41 @@ function FoodOverviewScreen({ route, navigation }) {
     const foodDefinition = route.params.menuDefinition;
     const foodImage = route.params.menuImage;
 
-    const addedToCart = foodCartCtx.ids.includes(foodId);
+    const addedToCart = foodCartCtx.orders.includes(foodId);
 
-    function changeCartStatus() {
-        if (addedToCart) {
-            foodCartCtx.removeFromCart(foodId);
-        } else {
-            foodCartCtx.addToCart(foodId);
-        }
+    function addQuantity() {
+        setQuantity(quantity + 1);
     }
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerRight: () => {
-                return (
-                    <IconButton
-                        icon={addedToCart ? 'cart' : 'cart-outline'}
-                        color="black"
-                        onPress={changeCartStatus}
-                    />
-                )
-            }
-        });
-    }, [navigation, changeCartStatus]);
+    function removeQuantity() {
+        setQuantity(quantity - 1);
+    }
+
+    function changeCartStatus() {
+        // if (addedToCart) {
+        //     foodCartCtx.removeFromCart(foodId);
+        // } else {
+            foodCartCtx.addToCart(foodId, 5);
+        // }
+    }
+
+    function addToCart() {
+        foodCartCtx.addToCart(foodId, quantity);
+    }
+
+    // useLayoutEffect(() => {
+    //     navigation.setOptions({
+    //         headerRight: () => {
+    //             return (
+    //                 <IconButton
+    //                     icon={addedToCart ? 'cart' : 'cart-outline'}
+    //                     color="black"
+    //                     onPress={changeCartStatus}
+    //                 />
+    //             )
+    //         }
+    //     });
+    // }, [navigation, changeCartStatus]);
 
     return (
         <View style={styles.outerContainer}>
@@ -56,10 +69,15 @@ function FoodOverviewScreen({ route, navigation }) {
                 <Text style={styles.name}>{foodPrice}</Text>
             </View>
             <View>
-                <PrimaryButton>
-
+                <PrimaryButton onPress={addQuantity}>
+                    <Text style={styles.buttonText}>+</Text>
+                </PrimaryButton>
+                <Text>{quantity}</Text>
+                <PrimaryButton onPress={removeQuantity}>
+                    <Text style={styles.buttonText}>-</Text>
                 </PrimaryButton>
             </View>
+            <PrimaryButton onPress={addToCart}>Add to Cart</PrimaryButton>
         </View>
     )
 

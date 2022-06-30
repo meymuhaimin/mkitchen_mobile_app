@@ -1,25 +1,39 @@
 import { createContext, useState } from "react";
 
 export const CartContext = createContext({
-    ids: [],
+    orders: [],
     addToCart: (id) => { },
     removeFromCart: (id) => { },
 })
 
 function CartContextProvider({ children }) {
-    const [cartMenuId, setCartFoodId] = useState([]);
+    const [cartMenuOrders, setCartFoodOrders] = useState([]);
 
-    function addToCart(id) {
-        setCartFoodId((currentInCartId) => [...currentInCartId, id]);
+    function addToCart(id, quantity) {
+        setCartFoodOrders((currentInCartId) => {
+            const newCart = [...currentInCartId];
+            const existingOrder = newCart.find(order => order.id === id);
+
+            if (existingOrder) {
+                existingOrder.quantity += quantity;
+            } else {
+                newCart.push({
+                    id,
+                    quantity
+                });
+            }
+
+            return newCart;
+        });
     }
 
     function removeFromCart(id) {
-        setCartFoodId((currentInCartId) =>
+        setCartFoodOrders((currentInCartId) =>
             currentInCartId.filter((foodId) => foodId !== id))
     }
 
     const value = {
-        ids: cartMenuId,
+        orders: cartMenuOrders,
         addToCart: addToCart,
         removeFromCart: removeFromCart
     }

@@ -13,12 +13,13 @@ export const MENU = [
         "Ayam Gepuk",
         6.50,
         "Nasi Ayam Gepuk is an Indonesian crispy battered fried chicken crushed and mixed with hot and spicy sambal.",
-        "https://en.wikipedia.org/wiki/Ayam_geprek#/media/File:Ayam_geprek.png"
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/Ayam_geprek.png"
     ),
     new Menu(
         "M3",
         "Nasi Arab",
         7
+      
     ),
     new Menu(
         "M4",

@@ -12,7 +12,7 @@ function FoodScreen({ navigation }) {
                 menuName: itemData.item.name,
                 menuPrice: itemData.item.price,
                 menuDefinition: itemData.item.definition,
-                menuImage: itemData.item.image,
+                menuImage: itemData.item.picture,
             });
         }
         return (
