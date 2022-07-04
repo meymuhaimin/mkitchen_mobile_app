@@ -8,6 +8,8 @@ import LoginScreen from "./screen/LoginScreen";
 import SignupScreen from "./screen/SignupScreen";
 import HomeScreen from "./screen/HomeScreen";
 import FoodScreen from "./screen/FoodScreen";
+import HiringScreen from "./screen/HiringScreen";
+import DonateScreen from "./screen/DonateScreen";
 import FoodOverviewScreen from "./screen/FoodOverviewScreen";
 import CartScreen from "./screen/CartScreen";
 import CartContextProvider from "./context/cart-context";
@@ -42,14 +44,18 @@ export default function App() {
               headerShown: false
             }}
           />
-          <Stack.Screen name="Sign Up" component={SignupScreen} options={{
-            headerShown: false,
-          }} />
+          <Stack.Screen name="Sign Up" component={SignupScreen} />
           <Stack.Screen name="HomeScreen" component={DrawerNavigator} options={{
             headerShown: false,
           }} />
           <Stack.Screen name="FoodScreen" component={FoodScreen} options={{
             title: "Menu",
+          }} />
+          <Stack.Screen name="Hiring" component={HiringScreen} options={{
+            title: "Join Us"
+          }} />
+          <Stack.Screen name="Donate" component={DonateScreen} options={{
+            title: "Donate Through Us"
           }} />
           <Stack.Screen name="FoodOverview" component={FoodOverviewScreen} options={{
             title: "About The Meal"

@@ -15,33 +15,33 @@ function LoginScreen({ navigation }) {
 
     return (
         <View style={styles.inputContainer}>
-            <TextInput 
+            <TextInput
                 placeholder='Email'
                 style={styles.emailInput}
                 keyboardType="email-address"
                 autoCapitalize="none"
-                autoCorrect={false} 
+                autoCorrect={false}
             />
-            <TextInput 
+            <TextInput
                 placeholder='Password'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
-                autoCorrect={false} 
+                autoCorrect={false}
             />
             <PrimaryButton>Reset</PrimaryButton>
             <PrimaryButton onPress={() => navigation.navigate('HomeScreen')}>Login</PrimaryButton>
             <View>
-                <Text style={{textAlign: 'center'}}>Not registered yet?</Text>
+                <Text style={{ textAlign: 'center' }}>Not registered yet?</Text>
                 <Pressable onPress={() => navigation.navigate('Sign Up')}>
-                    <Text style={{textAlign: 'center', textDecorationLine: 'underline'}}>Sign Up</Text>
+                    <Text style={{ textAlign: 'center', textDecorationLine: 'underline' }}>Sign Up</Text>
                 </Pressable>
             </View>
         </View>
     )
 }
 
-export  default LoginScreen;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
     inputContainer: {
@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 35,
         marginVertical: 20,
         fontSize: 20,
-        textAlign: 'center'
+        textAlign: 'center',
     },
 })

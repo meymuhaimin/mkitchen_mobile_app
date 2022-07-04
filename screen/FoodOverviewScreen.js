@@ -1,5 +1,5 @@
-import { Text, View, StyleSheet, Image, Button } from 'react-native';
-import {useContext, useLayoutEffect, useState} from 'react';
+import { Text, ScrollView, StyleSheet, Image, View } from 'react-native';
+import { useContext, useLayoutEffect, useState } from 'react';
 
 import PrimaryButton from '../component/PrimaryButton';
 
@@ -27,14 +27,6 @@ function FoodOverviewScreen({ route, navigation }) {
         setQuantity(quantity - 1);
     }
 
-    function changeCartStatus() {
-        // if (addedToCart) {
-        //     foodCartCtx.removeFromCart(foodId);
-        // } else {
-            foodCartCtx.addToCart(foodId, 5);
-        // }
-    }
-
     function addToCart() {
         foodCartCtx.addToCart(foodId, quantity);
     }
@@ -54,11 +46,8 @@ function FoodOverviewScreen({ route, navigation }) {
     // }, [navigation, changeCartStatus]);
 
     return (
-        <View style={styles.outerContainer}>
+        <ScrollView style={styles.outerContainer}>
             <Image source={{ uri: foodImage }} style={styles.image} />
-            <View style={styles.innerContainer}>
-                <Text style={styles.id}>{foodId}</Text>
-            </View>
             <View style={styles.innerContainer}>
                 <Text style={styles.name}>{foodName}</Text>
             </View>
@@ -66,19 +55,19 @@ function FoodOverviewScreen({ route, navigation }) {
                 <Text style={styles.about}>{foodDefinition}</Text>
             </View>
             <View style={styles.innerContainer}>
-                <Text style={styles.name}>{foodPrice}</Text>
+                <Text style={styles.name}>RM{foodPrice}</Text>
             </View>
             <View>
                 <PrimaryButton onPress={addQuantity}>
                     <Text style={styles.buttonText}>+</Text>
                 </PrimaryButton>
-                <Text>{quantity}</Text>
+                <Text style={styles.id}>{quantity}</Text>
                 <PrimaryButton onPress={removeQuantity}>
                     <Text style={styles.buttonText}>-</Text>
                 </PrimaryButton>
             </View>
             <PrimaryButton onPress={addToCart}>Add to Cart</PrimaryButton>
-        </View>
+        </ScrollView>
     )
 
 }
@@ -92,6 +81,7 @@ const styles = StyleSheet.create({
     innerContainer: {
         margin: 10,
         borderRadius: 8,
+        padding: 10,
         shadowColor: "black",
         shadowOpacity: 0.25,
         shadowOffset: { width: 0, height: 2 },
@@ -107,19 +97,22 @@ const styles = StyleSheet.create({
     id: {
         fontWeight: 'bold',
         fontSize: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
     },
     name: {
         fontWeight: 'bold',
         fontSize: 30,
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        padding: 20
     },
     about: {
         fontWeight: 'bold',
         fontSize: 15,
         textAlign: 'center',
-        padding: 20
+        padding: 20,
+        color: 'white'
     }
 })
 

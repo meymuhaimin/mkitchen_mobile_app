@@ -1,4 +1,5 @@
 import { View, Pressable, Text, StyleSheet, Platform } from 'react-native';
+import { Ionicons } from "@expo/vector-icons";
 
 function HomeScreen({ navigation }) {
     return (
@@ -7,28 +8,11 @@ function HomeScreen({ navigation }) {
                 <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
                     styles.button,
                     pressed ? styles.buttonPressed : null,
-                ]}>
-                    <View style={styles.inner1Container}>
-                        <Text style={styles.title}>We Are Hiring</Text>
-                    </View>
-                </Pressable>
-            </View>
-            <View style={styles.innerContainer}>
-                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
-                    styles.button,
-                    pressed ? styles.buttonPressed : null,
-                ]}>
-                    <View style={styles.inner1Container}>
-                        <Text style={styles.title}>Vendors</Text>
-                    </View>
-                </Pressable>
-            </View>
-            <View style={styles.innerContainer}>
-                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
-                    styles.button,
-                    pressed ? styles.buttonPressed : null,
                 ]}
                     onPress={() => navigation.navigate('FoodScreen')}>
+                    <View style={styles.icon}>
+                        <Ionicons name='fast-food' size={80} color="#F77162" />
+                    </View>
                     <View style={styles.inner1Container}>
                         <Text style={styles.title}>Food</Text>
                     </View>
@@ -39,6 +23,37 @@ function HomeScreen({ navigation }) {
                     styles.button,
                     pressed ? styles.buttonPressed : null,
                 ]}>
+                    <View style={styles.icon}>
+                        <Ionicons name='pricetags' size={80} color="#626BF7" />
+                    </View>
+                    <View style={styles.inner1Container}>
+                        <Text style={styles.title}>Vendors</Text>
+                    </View>
+                </Pressable>
+            </View>
+            <View style={styles.innerContainer}>
+                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
+                    styles.button,
+                    pressed ? styles.buttonPressed : null,
+                ]}
+                    onPress={() => navigation.navigate('Hiring')}>
+                    <View style={styles.icon}>
+                        <Ionicons name='body' size={80} color="#DE62F7" />
+                    </View>
+                    <View style={styles.inner1Container}>
+                        <Text style={styles.title}>We Are Hiring</Text>
+                    </View>
+                </Pressable>
+            </View>
+            <View style={styles.innerContainer}>
+                <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [
+                    styles.button,
+                    pressed ? styles.buttonPressed : null,
+                ]}
+                    onPress={() => navigation.navigate('Donate')}>
+                    <View style={styles.icon}>
+                        <Ionicons name='cash-outline' size={80} color="#71F762" />
+                    </View>
                     <View style={styles.inner1Container}>
                         <Text style={styles.title}>Donate</Text>
                     </View>
@@ -71,6 +86,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#616161',
         overflow: Platform.OS === "android" ? "hidden" : "visible"
     },
+    icon: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10
+    },
     button: {
         flex: 1,
     },
@@ -81,7 +101,6 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 16,
         borderRadius: 8,
-        justifyContent: "center",
         alignItems: "center",
     },
     title: {

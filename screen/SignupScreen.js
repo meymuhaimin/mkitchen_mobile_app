@@ -2,52 +2,47 @@ import { TextInput, View, StyleSheet, Pressable, Text } from 'react-native';
 
 import PrimaryButton from '../component/PrimaryButton';
 
-function SignupScreen({onSkrinNumber}) {
-    function pressHandler() {
-        var skrinNum = 0;
-        onSkrinNumber(skrinNum);
-    }
+function SignupScreen({ onSkrinNumber }) {
+    // function pressHandler() {
+    //     var skrinNum = 0;
+    //     onSkrinNumber(skrinNum);
+    // }
 
     return (
         <View style={styles.inputContainer}>
-            <Text style={{textAlign: 'center', fontSize: 40}}>
+            <Text style={{ textAlign: 'center', fontSize: 40 }}>
                 Create New Account
             </Text>
-            <TextInput 
+            <TextInput
                 placeholder='Name'
                 style={styles.emailInput}
                 keyboardType="email-address"
                 autoCapitalize="none"
-                autoCorrect={false} 
+                autoCorrect={false}
             />
-            <TextInput 
+            <TextInput
                 placeholder='Email'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
-                autoCorrect={false} 
+                autoCorrect={false}
             />
-            <TextInput 
+            <TextInput
                 placeholder='Password'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
-                autoCorrect={false} 
+                autoCorrect={false}
             />
-            <TextInput 
+            <TextInput
                 placeholder='Re-enter Password'
                 style={styles.emailInput}
                 keyboardType="default"
                 autoCapitalize="none"
-                autoCorrect={false} 
+                autoCorrect={false}
             />
             <PrimaryButton>Reset</PrimaryButton>
             <PrimaryButton>Sign Up</PrimaryButton>
-            <View>
-                <Pressable onPress={() => navigation.navigate('Login')} >
-                    <Text style={{textAlign: 'center', textDecorationLine: 'underline'}}>Log In</Text>
-                </Pressable>
-            </View>
         </View>
     )
 }
